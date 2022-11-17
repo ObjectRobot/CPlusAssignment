@@ -1,14 +1,23 @@
+// include pre-processor directive
+#include <iostream>
+#include "./headers/Statistician.h"
+
+using std::cout;
+
+// use C++ standard library namespace
+using namespace std;
+
 int main() {
     // create a Statistician object named s1 using its one-arg 
     // constructor giving it an argument of 3.5
-    
+    Statistician s1(3.5);
 
     // declare local variables that will be used when calling 
     // s1's getter method
-    
+    s1.getStatistician(highest, lowest, sum);
 
     // call method on s1 that will display it to stdout
-    
+    cout << "Statistician : 1" << Statistician << endl;
 
     // call method on s1 that will add 5.2 to it
     
@@ -31,7 +40,7 @@ int main() {
 
     // create a Statistician object named s2 using its no-arg
     // constructor
-    
+    Statistician s2();
 
     // call method on s2 that will display it to stdout
     
