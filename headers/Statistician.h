@@ -1,5 +1,6 @@
 // include pre-processor directive
 #include <iostream>
+#include <iomanip>
 #include "Computation.h"
 
 // use C++ standard library namespace
@@ -63,12 +64,12 @@ Statistician::Statistician()
     sum = 0;
 }
 
-Statistician::Statistician(double)
+Statistician::Statistician(double num)
 {
-    num = 0.0;
-    highest = 0.0;
-    lowest = 0.0;
-    sum = 0.0;
+    this->num = num;
+    highest = num;
+    lowest = num;
+    sum = num;
 }
 
 void Statistician::getStatistician(double& highest, double& lowest, double& sum) const
@@ -80,19 +81,24 @@ void Statistician::getStatistician(double& highest, double& lowest, double& sum)
 
 void Statistician::addNumber(double num)
 {
-    num.computeLowest();
-    num.computeHighest();
-    num.computeSum();
+    this->num = num;
+    computeLowest();
+    computeHighest();
+    computeSum();
 }
 
 void Statistician::computeLowest()
 {
-    lowest = num + lowest;
+    if (num < lowest) {
+    lowest = num;  
+    }
 }
 
 void Statistician::computeHighest()
 {
-    highest = num + highest;
+    if (num > highest) {
+    highest = num;  
+    }
 }
 
 void Statistician::computeSum()
@@ -103,6 +109,7 @@ void Statistician::computeSum()
 void Statistician::printStatistician() const
 {
     cout << fixed << showpoint;
+    cout << setprecision(2);
     cout << "highest=" << highest << ", lowest" << lowest << ", sum=" << sum << endl;
 }
 
